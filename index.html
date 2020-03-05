@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body bgcolor="lightcoral">
+    <div class="login">
+        <h1 align="center"> <i>Orthopedic Patient Analysis</i>  </h1> 
+        
+        
+
+        
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{url_for('predict')}}" method="post">
+        <center>    Pelvic Incidence   <input type="number" name="pelvic_incidence" placeholder="pelvic_incidence" required="required"/> </center>
+            <br>
+          <center> Pelvic tilt numeric <input type="number" name="pelvic_tilt numeric " placeholder="pelvic_tilt numeric " required="required"/> </center>
+            <br>
+         <center>  Lumbarlordosis angle <input type="number" name="lumbar_lordosis_angle " placeholder="lumbar_lordosis_angle " required="required"/> </center>
+            <br>
+         <center>  Sacral slope <input type="number" name="sacral_slope" placeholder="sacral_slope " required="required"/>
+            <br>  </center>  <br> 
+         <center>  Pelvic radius <input type="number" name="pelvic_radius " placeholder="pelvic_radius " required="required"/>
+            <br> </center>  <br> 
+          <center> Degree spondylolisthesis <input type="number" name="degree_spondylolisthesis " placeholder="degree_spondylolisthesis " required="required"/> <br> </center>  <br> 
+         <center>  <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button> </center>
+    </form> 
+
+   <br>
+   <br>
+ <center>  {{ prediction_text }} </center>
+<script>
+    if (prediction_text ==0)
+    {
+        return "Abnormal"
+    }
+    else
+    {
+        return "Normal"
+    }
+        </script>
+ </div>
+
+
+</body>
+</html>
